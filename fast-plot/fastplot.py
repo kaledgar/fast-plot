@@ -3,12 +3,6 @@ import pandas as pd
 from matplotlib import pyplot as plt
 
 
-# test data
-x = range(5)
-y = [1, 1.5, 1.2, 1.6, 1.6]
-df = pd.read_excel('./test_data/data.xlsx')
-df_time_series = pd.read_excel('./test_data/time_series_data.xlsx')
-
 def fast_plot(x, y, xlabel = 'x', ylabel = 'y', legend_text = 'y',
               xlimit = None, ylimit = None, grid = True,  legend= True, filename = None):
     '''
@@ -37,8 +31,6 @@ def fast_plot(x, y, xlabel = 'x', ylabel = 'y', legend_text = 'y',
     if filename:
         plt.savefig(filename)
     plt.show()
-
-fast_plot(x, y, 'x', 'y [$m^2$]', 'data', filename = 'data')
 
 def df_plot(df, xlabel, ylabel, width = 8, height = 6,
             grid = True, legend = True,  filename = None):
@@ -69,5 +61,3 @@ def df_plot(df, xlabel, ylabel, width = 8, height = 6,
     if filename:
         plt.savefig(filename)
     plt.show()
-
-df_plot(df, 'x', 'y $m / \sqrt{ps}$', filename='1')
