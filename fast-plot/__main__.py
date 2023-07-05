@@ -3,11 +3,11 @@ from constants import x, y, df, df_time_series
 
 
 df_plot(df,
-        'X [$m$]',
-        'Effective value $[ m^3 / s^{11}]$',
+        r'$ \tau $ [ps]',
+        'Max. Ablation Efficiency $[ mm^3 / (W \cdot min)]$',
         width = 8,
-        height = 3,
-        filename='figure.png',
+        height = 6,
+        ylimit = (.15, .45),
+        filename='figure1.png',
         regression = True,
-        xtics = range(0, 22, 2)
         )

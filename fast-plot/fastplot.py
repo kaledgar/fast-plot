@@ -2,6 +2,8 @@ import numpy as np
 import pandas as pd
 from matplotlib import pyplot as plt
 from sklearn.linear_model import LinearRegression
+from matplotlib.lines import Line2D
+
 
 def fast_plot(x, y, xlabel = 'x', ylabel = 'y', legend_text = 'y',
               xlimit = None, ylimit = None, grid = True,  legend= True, filename = None):
@@ -54,13 +56,13 @@ def df_plot(df, xlabel, ylabel, width=8, height=6, grid=True,
         regression_model = LinearRegression()
         x = df['x'].values.reshape(-1, 1)
 
-    for column in columns_without_first:
+    for column, mark in zip(columns_without_first, Line2D.markers):
         y = df[column].values.reshape(-1, 1)
 
         if regression:
             regression_model.fit(x, y)
             y_pred = regression_model.predict(x)
-            ax.scatter(df['x'], df[column], label=column)
+            ax.scatter(df['x'], df[column], label=column, marker = mark)
             ax.plot(df['x'], y_pred, '--', label=None)
         else:
             ax.plot(df['x'], df[column], 'o-', label=column)
